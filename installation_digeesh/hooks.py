@@ -263,7 +263,7 @@ fixtures = [
         "dt": "Workflow State",
         "filters": [["name", "in", [
             "Draft", "Submitted", "Submit", "Under Review", "Approve",
-            "Approved", "Reject", "Rejected", "Resubmit", "Scheduled", "Pending"
+            "Approved", "Reject", "Rejected", "Resubmit", "Scheduled", "Pending","Cancelled"
         ]]]
     },
     {
@@ -271,7 +271,7 @@ fixtures = [
         "filters": [["name", "in", [
             "Submit for Review", "Send to Approver", "Approve",
             "Reject", "Resubmit", "Schedule", "Review", "Under Review",
-            "Draft", "Submitted"
+            "Draft", "Submitted","Cancel"
         ]]]
     },
     {

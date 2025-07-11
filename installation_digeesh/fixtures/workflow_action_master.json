@@ -51,6 +51,20 @@
  {
   "docstatus": 0,
   "doctype": "Workflow Action Master",
+  "modified": "2025-07-10 15:08:10.572259",
+  "name": "Schedule",
+  "workflow_action_name": "Schedule"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2025-07-11 12:35:08.827225",
+  "name": "Cancel",
+  "workflow_action_name": "Cancel"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
   "modified": "2025-07-10 15:07:09.486119",
   "name": "Resubmit",
   "workflow_action_name": "Resubmit"
@@ -61,12 +75,5 @@
   "modified": "2025-07-10 11:28:37.976536",
   "name": "Reject",
   "workflow_action_name": "Reject"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow Action Master",
-  "modified": "2025-07-10 15:08:10.572259",
-  "name": "Schedule",
-  "workflow_action_name": "Schedule"
  }
 ]

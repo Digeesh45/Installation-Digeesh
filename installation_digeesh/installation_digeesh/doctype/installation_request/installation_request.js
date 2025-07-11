@@ -24,41 +24,52 @@ frappe.ui.form.on('Installation Request', {
             }).addClass('btn-primary');
         }
     },
-
     delivery_note: function(frm) {
-        if (frm.doc.delivery_note) {
-            frappe.call({
-                method: 'frappe.client.get_value',
-                args: {
-                    doctype: 'Delivery Note',
-                    filters: { name: frm.doc.delivery_note },
-                    fieldname: 'customer'
-                },
-                callback: function(r) {
-                    if (r.message?.customer) {
-                        frm.set_value('customer', r.message.customer);
-                    }
+    if (frm.doc.delivery_note) {
+    
+        frappe.call({
+            method: 'frappe.client.get_value',
+            args: {
+                doctype: 'Delivery Note',
+                filters: { name: frm.doc.delivery_note },
+                fieldname: 'customer'
+            },
+            callback: function(r) {
+                if (r.message?.customer) {
+                    frm.set_value('customer', r.message.customer);
                 }
-            });
+            }
+        });
 
-            frm.clear_table('installation_items');
-            frappe.call({
-                method: 'installation_digeesh.installation_digeesh.doctype.installation_request.installation_request.get_delivery_note_items',
-                args: { delivery_note: frm.doc.delivery_note },
-                callback: function(r) {
-                    if (r.message) {
-                        r.message.forEach(item => {
-                            const row = frm.add_child('installation_items');
-                            row.item_code = item.item_code;
-                            row.quantity = item.qty;
-                        });
-                        frm.refresh_field('installation_items');
-                        frm.trigger('calculate_total_quantity');
-                    }
+        
+        frm.clear_table('installation_items');
+        frappe.call({
+            method: 'installation_digeesh.installation_digeesh.doctype.installation_request.installation_request.get_delivery_note_items',
+            args: { delivery_note: frm.doc.delivery_note },
+            callback: function(r) {
+                if (r.message) {
+                    r.message.forEach(item => {
+                        const row = frm.add_child('installation_items');
+                        row.item_code = item.item_code;
+                        row.quantity = item.qty;
+                    });
+                    frm.refresh_field('installation_items');
+                    frm.trigger('calculate_total_quantity');
                 }
-            });
-        }
-    },
+            }
+        });
+
+    } else {
+
+        frm.clear_table('installation_items');
+        frm.set_value('customer', '');
+        frm.set_value('assigned_technician', '');
+        frm.set_value('total_quantity', 0);
+        frm.refresh_fields();
+    }
+},
+
+
 
     customer: function(frm) {
         if (frm.doc.customer) {
@@ -113,10 +124,13 @@ frappe.ui.form.on('Installation Request', {
 frappe.ui.form.on('Installation Items', {
     installation_items_add: function(frm) {
         frappe.msgprint('Items are auto-fetched from Delivery Note. Manual addition is not allowed.');
-        frm.get_field('installation_items').grid.grid_rows.pop();  
+        // frm.get_field('installation_items').grid.grid_rows.pop();  
         frm.refresh_field('installation_items');
     },
     quantity: function(frm) {
+        frm.trigger('calculate_total_quantity');
+    },
+    installation_items_remove: function(frm, cdt, cdn) {
         frm.trigger('calculate_total_quantity');
     }
 });

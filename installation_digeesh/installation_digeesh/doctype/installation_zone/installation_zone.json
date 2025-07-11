@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "IZ.###",
  "creation": "2025-07-10 11:42:47.086294",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -35,6 +36,7 @@
    "fieldname": "customer",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Customer",
    "options": "Customer",
    "reqd": 1,
@@ -43,6 +45,7 @@
   {
    "fieldname": "preferred_technician",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Preferred Technician",
    "options": "User"
   }
@@ -51,10 +54,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-10 12:04:49.936534",
+ "modified": "2025-07-11 12:56:12.978281",
  "modified_by": "Administrator",
  "module": "Installation Digeesh",
  "name": "Installation Zone",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
