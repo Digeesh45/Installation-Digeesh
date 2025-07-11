@@ -113,7 +113,7 @@ frappe.ui.form.on('Installation Request', {
 frappe.ui.form.on('Installation Items', {
     installation_items_add: function(frm) {
         frappe.msgprint('Items are auto-fetched from Delivery Note. Manual addition is not allowed.');
-        frm.get_field('installation_items').grid.grid_rows.pop();  // prevent adding
+        frm.get_field('installation_items').grid.grid_rows.pop();  
         frm.refresh_field('installation_items');
     },
     quantity: function(frm) {

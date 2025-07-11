@@ -243,7 +243,6 @@ app_license = "mit"
 # }
 
 fixtures = [
-    # Workspace and related components
     {
         "dt": "Workspace",
         "filters": [["name", "in", ["Service Operation"]]]
@@ -256,61 +255,37 @@ fixtures = [
         "dt": "Workspace Quick List",
         "filters": [["parent", "=", "Service Operation"]]
     },
-
-
-
-
-    # Workflow & related setup
     {
         "dt": "Workflow",
         "filters": [["document_type", "in", ["Installation Request"]]]
     },
     {
         "dt": "Workflow State",
-         "filters": [["name", "in", [
-        "Draft",
-        "Submitted",
-        "Submit",
-        "Under Review",
-        "Approve",
-        "Approved",
-        "Reject",
-        "Rejected",
-        "Resubmit",
-        "Scheduled",
-        "Pending"
-    ]]]
+        "filters": [["name", "in", [
+            "Draft", "Submitted", "Submit", "Under Review", "Approve",
+            "Approved", "Reject", "Rejected", "Resubmit", "Scheduled", "Pending"
+        ]]]
     },
     {
         "dt": "Workflow Action Master",
         "filters": [["name", "in", [
-            "Submit for Review",
-            "Send to Approver",
-            "Approve",
-            "Reject",
-            "Resubmit",
-            "Schedule",
-            "Review",
-            "Under Review",
-            "Draft",
-            "Submitted"
-            ]]]
+            "Submit for Review", "Send to Approver", "Approve",
+            "Reject", "Resubmit", "Schedule", "Review", "Under Review",
+            "Draft", "Submitted"
+        ]]]
     },
-
-    # Custom roles
     {
         "dt": "Role",
         "filters": [["name", "in", ["Installation Request Approver"]]]
     },
     {
-    "dt": "User",
-    "filters": [["email", "=", "digeeshsekara@gmail.com"]]
-},
-
-
-    # Charts (if used)
-    {
-        "dt": "Dashboard Chart",
-        "filters": [["name", "in", ["Installation Request Chart"]]]
+        "dt": "User",
+        "filters": [["email", "=", "digeeshsekara@gmail.com"]]
     }
 ]
+
+doc_events = {
+    "Installation Request": {
+        "before_submit": "installation_digeesh.installation_digeesh.doctype.installation_request.installation_request.before_submit"
+    }
+}

@@ -52,7 +52,7 @@ class InstallationRequest(Document):
     def validate_total_quantity(self):
         if self.total_quantity > 10:
             frappe.msgprint(
-                "⚠️ Total quantity is more than 10. Please confirm before submission.",
+                " Total quantity is more than 10. Please confirm before submission.",
                 title="High Quantity Warning",
                 indicator="orange"
             )
