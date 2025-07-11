@@ -1,0 +1,32 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.status == \"Scheduled\"",
+ "creation": "2025-07-10 16:53:31.121958",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Installation Request",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<h2 style=\"color: #0b5394;\">Installation Scheduled</h2>\n\n<p>Hello <b>{{ doc.assigned_technician }}</b>,</p>\n\n<p>The installation request <b>{{ doc.name }}</b> has been scheduled.</p>\n\n<table border=\"1\" cellpadding=\"6\" cellspacing=\"0\" style=\"border-collapse: collapse;\">\n    <tr style=\"background-color: #f2f2f2;\">\n        <th>Customer</th>\n        <th>Delivery Note</th>\n        <th>Total Quantity</th>\n    </tr>\n    <tr>\n        <td>{{ doc.customer }}</td>\n        <td>{{ doc.delivery_note }}</td>\n        <td>{{ doc.total_quantity }}</td>\n    </tr>\n</table>\n\n<p>Please proceed with the installation at your scheduled time.</p>\n\n<p style=\"color: gray;\">Sent by Frappe ERP</p>\n",
+ "message_type": "Markdown",
+ "modified": "2025-07-10 18:47:11.273954",
+ "modified_by": "Administrator",
+ "module": "Installation Digeesh",
+ "name": "Installation Request",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_role": "Installation Request Approver"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 0,
+ "sender": "Digeesh",
+ "sender_email": "digeeshsekara@gmail.com",
+ "subject": "Installation Scheduled {{doc.customer}}",
+ "value_changed": "status"
+}

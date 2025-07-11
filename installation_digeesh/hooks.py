@@ -242,3 +242,75 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [
+    # Workspace and related components
+    {
+        "dt": "Workspace",
+        "filters": [["name", "in", ["Service Operation"]]]
+    },
+    {
+        "dt": "Workspace Link",
+        "filters": [["parent", "=", "Service Operation"]]
+    },
+    {
+        "dt": "Workspace Quick List",
+        "filters": [["parent", "=", "Service Operation"]]
+    },
+
+
+
+
+    # Workflow & related setup
+    {
+        "dt": "Workflow",
+        "filters": [["document_type", "in", ["Installation Request"]]]
+    },
+    {
+        "dt": "Workflow State",
+         "filters": [["name", "in", [
+        "Draft",
+        "Submitted",
+        "Submit",
+        "Under Review",
+        "Approve",
+        "Approved",
+        "Reject",
+        "Rejected",
+        "Resubmit",
+        "Scheduled",
+        "Pending"
+    ]]]
+    },
+    {
+        "dt": "Workflow Action Master",
+        "filters": [["name", "in", [
+            "Submit for Review",
+            "Send to Approver",
+            "Approve",
+            "Reject",
+            "Resubmit",
+            "Schedule",
+            "Review",
+            "Under Review",
+            "Draft",
+            "Submitted"
+            ]]]
+    },
+
+    # Custom roles
+    {
+        "dt": "Role",
+        "filters": [["name", "in", ["Installation Request Approver"]]]
+    },
+    {
+    "dt": "User",
+    "filters": [["email", "=", "digeeshsekara@gmail.com"]]
+},
+
+
+    # Charts (if used)
+    {
+        "dt": "Dashboard Chart",
+        "filters": [["name", "in", ["Installation Request Chart"]]]
+    }
+]
