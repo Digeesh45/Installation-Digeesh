@@ -277,11 +277,11 @@ fixtures = [
     {
         "dt": "Role",
         "filters": [["name", "in", ["Installation Request Approver"]]]
-    },
-    {
-        "dt": "User",
-        "filters": [["email", "=", "digeeshsekara@gmail.com"]]
     }
+    # {
+    #     "dt": "User",
+    #     "filters": [["email", "=", "digeeshsekara@gmail.com"]]
+    # }
 ]
 
 doc_events = {
