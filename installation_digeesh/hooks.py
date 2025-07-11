@@ -284,8 +284,4 @@ fixtures = [
     # }
 ]
 
-doc_events = {
-    "Installation Request": {
-        "before_submit": "installation_digeesh.installation_digeesh.doctype.installation_request.installation_request.before_submit"
-    }
-}
+
